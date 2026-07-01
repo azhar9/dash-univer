@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # Installs Chrome + a matching chromedriver on PATH (selenium 4.2, pinned by
+      # dash[testing], has no auto driver manager).
+      - uses: browser-actions/setup-chrome@v1
+        with:
+          install-chromedriver: true
+
+      - name: Install JS deps and build bundle + Python classes
+        run: |
+          npm ci
+          npm run build
+
+      - name: Install package
+        run: uv pip install --system -e ".[dev]"
+
+      - name: Run end-to-end tests
+        run: pytest --headless -v

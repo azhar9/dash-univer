@@ -1,0 +1,58 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dash-univer"
+version = "0.1.0"
+description = "A Dash component wrapping the Univer spreadsheet"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Azhar Syed" }]
+keywords = ["dash", "univer", "spreadsheet", "plotly", "react"]
+classifiers = [
+    "Framework :: Dash",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    # Univer needs React 18, which Dash ships from 3.0 onward.
+    "dash>=3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "dash[testing]>=3",
+    "selenium>=4",
+    "pytest>=8",
+    "requests>=2",
+    "build>=1",
+    "twine>=5",
+]
+
+[project.urls]
+Homepage = "https://github.com/azharsyed/dash-univer"
+Repository = "https://github.com/azharsyed/dash-univer"
+Issues = "https://github.com/azharsyed/dash-univer/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["dash_univer"]
+
+[tool.hatch.build.targets.sdist]
+# Ship source + built artifacts so the sdist is also installable.
+include = ["dash_univer", "src", "package.json", "webpack.config.js", "README.md", "LICENSE"]
+
+[tool.hatch.build]
+# The JS bundle and generated metadata are build outputs (gitignored); force them
+# into the distributions so the installed package is self-contained.
+artifacts = [
+    "dash_univer/dash_univer.js",
+    "dash_univer/metadata.json",
+    "dash_univer/package.json",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

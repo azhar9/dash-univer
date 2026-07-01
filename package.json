@@ -1,0 +1,41 @@
+{
+  "name": "dash-univer",
+  "version": "0.1.0",
+  "description": "Dash component wrapping the Univer spreadsheet",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azharsyed/dash-univer.git"
+  },
+  "license": "MIT",
+  "main": "build/index.js",
+  "scripts": {
+    "build:js": "webpack --mode production",
+    "build:py": "dash-generate-components ./src/lib/components dash_univer -p package.json",
+    "build": "npm run build:js && npm run build:py",
+    "start": "webpack serve --mode development"
+  },
+  "dependencies": {
+    "@univerjs/preset-sheets-core": "0.25.1",
+    "@univerjs/presets": "0.25.1",
+    "rxjs": "7.8.2"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "prop-types": "^15.8.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-docgen": "^5.4.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
+  }
+}
