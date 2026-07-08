@@ -34,9 +34,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/azharsyed/dash-univer"
-Repository = "https://github.com/azharsyed/dash-univer"
-Issues = "https://github.com/azharsyed/dash-univer/issues"
+Homepage = "https://github.com/azhar9/dash-univer"
+Repository = "https://github.com/azhar9/dash-univer"
+Issues = "https://github.com/azhar9/dash-univer/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["dash_univer"]

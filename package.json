@@ -5,7 +5,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/azharsyed/dash-univer.git"
+    "url": "git+https://github.com/azhar9/dash-univer.git"
   },
   "license": "MIT",
   "main": "build/index.js",
