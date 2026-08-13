@@ -9,7 +9,7 @@ description = "A Dash component wrapping the Univer spreadsheet"
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
-license-files = ["LICENSE", "THIRD_PARTY_LICENSES.md"]
+license-files = ["LICENSE", "THIRD_PARTY_LICENSES.md", "LICENSES/*"]
 authors = [{ name = "Azhar Syed" }]
 keywords = ["dash", "univer", "spreadsheet", "plotly", "react"]
 classifiers = [
@@ -45,7 +45,7 @@ packages = ["dash_univer"]
 
 [tool.hatch.build.targets.sdist]
 # Ship source + built artifacts so the sdist is also installable.
-include = ["dash_univer", "src", "package.json", "webpack.config.js", "README.md", "LICENSE", "THIRD_PARTY_LICENSES.md"]
+include = ["dash_univer", "src", "package.json", "webpack.config.js", "README.md", "LICENSE", "THIRD_PARTY_LICENSES.md", "LICENSES"]
 
 [tool.hatch.build]
 # The JS bundle and generated metadata are build outputs (gitignored); force them

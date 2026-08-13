@@ -14,7 +14,9 @@ in its repository.
 | react-jsx-runtime | 18.3.1 | [MIT](https://github.com/facebook/react/blob/main/LICENSE) |
 
 License comments preserved by the minifier are additionally shipped in
-`dash_univer/dash_univer.js.LICENSE.txt`.
+`dash_univer/dash_univer.js.LICENSE.txt`. The full text of each license
+above ships in the `LICENSES/` directory of the distribution:
+`LICENSES/Apache-2.0.txt` and `LICENSES/MIT.txt`.
 
 React and ReactDOM are not bundled — they are provided at runtime by Dash
 (its own licenses apply).
