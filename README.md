@@ -3,6 +3,8 @@
 [![PyPI](https://img.shields.io/pypi/v/dash-univer.svg)](https://pypi.org/project/dash-univer/)
 [![Python](https://img.shields.io/pypi/pyversions/dash-univer.svg)](https://pypi.org/project/dash-univer/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![CI](https://github.com/azhar9/dash-univer/actions/workflows/ci.yml/badge.svg)](https://github.com/azhar9/dash-univer/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/azhar9/dash-univer/graph/badge.svg)](https://codecov.io/gh/azhar9/dash-univer)
 
 A [Dash](https://dash.plotly.com/) component that embeds the
 [Univer](https://univer.ai) spreadsheet — a full-featured, Excel-like sheet with
