@@ -21,8 +21,11 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Install dash (provides dash-generate-components for build:py)
-        run: uv pip install --system "dash>=3"
+      - name: Set up venv and install dash (provides dash-generate-components)
+        run: |
+          uv venv --python 3.13
+          echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
+          uv pip install "dash>=3"
 
       - name: Build JS bundle + Python classes
         run: |
