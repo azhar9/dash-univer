@@ -25,11 +25,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      # Installs Chrome + a matching chromedriver on PATH (selenium 4.2, pinned by
-      # dash[testing], has no auto driver manager).
+      # Latest Chrome. Selenium Manager (selenium>=4.11) auto-downloads the
+      # matching chromedriver.
       - uses: browser-actions/setup-chrome@v1
-        with:
-          install-chromedriver: true
 
       # dash provides dash-generate-components for build:py; installed before
       # build (installing the project itself would fail — hatch forces the
@@ -47,6 +45,12 @@ jobs:
 
       - name: Install package
         run: uv pip install -e ".[dev]"
+
+      # dash[testing] pins selenium<=4.2, which breaks with ChromeDriver>=115
+      # (--port=0 removed). dash.testing works with 4.11.x, whose Selenium
+      # Manager auto-downloads a matching chromedriver.
+      - name: Upgrade selenium past dash pin
+        run: uv pip install -U "selenium==4.11.2"
 
       - name: Run end-to-end tests
         run: pytest --headless --cov=dash_univer --cov-report=xml -v
