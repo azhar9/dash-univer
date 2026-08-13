@@ -1,15 +1,15 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling>=1.21,<2"]
 build-backend = "hatchling.build"
 
 [project]
 name = "dash-univer"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Dash component wrapping the Univer spreadsheet"
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
-license-files = ["LICENSE"]
+license-files = ["LICENSE", "THIRD_PARTY_LICENSES.md"]
 authors = [{ name = "Azhar Syed" }]
 keywords = ["dash", "univer", "spreadsheet", "plotly", "react"]
 classifiers = [
@@ -20,7 +20,8 @@ classifiers = [
 ]
 dependencies = [
     # Univer needs React 18, which Dash ships from 3.0 onward.
-    "dash>=3",
+    # Upper bound: next untested major; loosen once CI proves it.
+    "dash>=3,<5",
 ]
 
 [project.optional-dependencies]
@@ -44,13 +45,14 @@ packages = ["dash_univer"]
 
 [tool.hatch.build.targets.sdist]
 # Ship source + built artifacts so the sdist is also installable.
-include = ["dash_univer", "src", "package.json", "webpack.config.js", "README.md", "LICENSE"]
+include = ["dash_univer", "src", "package.json", "webpack.config.js", "README.md", "LICENSE", "THIRD_PARTY_LICENSES.md"]
 
 [tool.hatch.build]
 # The JS bundle and generated metadata are build outputs (gitignored); force them
 # into the distributions so the installed package is self-contained.
 artifacts = [
     "dash_univer/dash_univer.js",
+    "dash_univer/dash_univer.js.LICENSE.txt",
     "dash_univer/metadata.json",
     "dash_univer/package.json",
 ]

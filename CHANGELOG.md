@@ -1,6 +1,14 @@
 # Changelog
 
-## 0.1.0 (unreleased)
+## 0.1.1 (2026-08-12)
+
+- Ship third-party license attribution with the wheel: bundled JS licenses
+  (`dash_univer.js.LICENSE.txt`) and a `THIRD_PARTY_LICENSES.md` listing
+  Univer, rxjs, localForage, decimal.js, and react-jsx-runtime.
+- Pin `dash` to `>=3,<5` (upper bound until CI proves dash 5).
+- Pin the hatchling build backend to `<2`.
+
+## 0.1.0 (2026-08-12)
 
 Initial release.
 
