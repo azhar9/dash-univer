@@ -31,6 +31,12 @@ jobs:
         with:
           install-chromedriver: true
 
+      # dash provides dash-generate-components for build:py; installed before
+      # build (installing the project itself would fail — hatch forces the
+      # not-yet-built JS artifacts into the wheel).
+      - name: Install dash
+        run: uv pip install --system "dash>=3"
+
       - name: Install JS deps and build bundle + Python classes
         run: |
           npm ci

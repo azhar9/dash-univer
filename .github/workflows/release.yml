@@ -7,7 +7,6 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    environment: pypi
     permissions:
       id-token: write # PyPI Trusted Publishing (OIDC) — no stored token
     steps:
@@ -21,6 +20,9 @@ jobs:
       - uses: astral-sh/setup-uv@v6
         with:
           python-version: "3.13"
+
+      - name: Install dash (provides dash-generate-components for build:py)
+        run: uv pip install --system "dash>=3"
 
       - name: Build JS bundle + Python classes
         run: |
