@@ -25,7 +25,7 @@ jobs:
         run: |
           uv venv --python 3.13
           echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
-          uv pip install "dash>=3"
+          uv pip install "dash>=3" pyyaml
 
       - name: Build JS bundle + Python classes
         run: |

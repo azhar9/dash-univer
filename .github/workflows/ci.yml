@@ -38,7 +38,7 @@ jobs:
         run: |
           uv venv --python ${{ matrix.python-version }}
           echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
-          uv pip install "dash>=3"
+          uv pip install "dash>=3" pyyaml
 
       - name: Install JS deps and build bundle + Python classes
         run: |
